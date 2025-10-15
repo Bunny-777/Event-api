@@ -71,8 +71,7 @@ Fetch all registered users.
 ```
 
 
-
-### 🎉 Event Routes
+### 🎫 Event Routes
 
 #### ➕ Create an Event
 **POST** `/events`  
@@ -109,6 +108,16 @@ Fetch all events.
 #### 📘 Get Event by ID
 **GET** `/events/:id`  
 Fetch details of a specific event by its ID.
+
+
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| POST   | /api/v1/events/create | Create a new event |
+| GET    | /api/v1/events/:id | Get event details (with users) |
+| POST   | /api/v1/events/register | Register a user for an event |
+| POST   | /api/v1/events/cancel | Cancel a user’s registration |
+| GET    | /api/v1/events/upcoming/all | List upcoming events |
+| GET    | /api/v1/events/:id/stats | View event stats |
 
 
 ### 📝 Registration Routes
@@ -153,4 +162,58 @@ Fetch all registrations.
 | 500        | Internal Server Error                |
 
 
+## 📂 Folder Structure
+```tree
+src/
+├── db.js
+├── index.js
+├── controllers/
+│ ├── event.controller.js
+│ └── user.controller.js
+├── routes/
+│ ├── index.js
+│ ├── event.route.js
+│ └── user.route.js
+└── prisma/
+└── schema.prisma
 
+```
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/Bunny-777/Event-api.git
+cd Event-api
+```
+
+### 2️⃣ Install Dependencies
+```bash
+npm install
+```
+
+### 3️⃣ Configure Environment Variables
+Create a .env file in the project root and add your PostgreSQL connection string:
+```bash
+DATABASE_URL="postgresql://postgres:yourpassword@localhost:5432/eventsdb?schema=public"
+```
+
+
+### 4️⃣ Setup Prisma & Database
+Run migrations and generate Prisma client:
+```bash
+npx prisma migrate dev --name init
+npx prisma generate
+```
+
+
+### 5️⃣ Start the Server
+```bash
+node src/index.js
+```
+
+By default, the API runs on:
+```bash
+http://localhost:3000
+```
