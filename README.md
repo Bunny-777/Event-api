@@ -37,7 +37,7 @@ This API provides a complete event management system where users can create even
 ### 👤 User Routes
 
 #### ➕ Create a User
-**POST** `/users`  
+**POST** `/api/v1/users`  
 Create a new user.
 
 **Request Body**
@@ -56,7 +56,7 @@ Create a new user.
 }
 ```
 #### 📋 Get All Users
-**GET** `/users`  
+**GET** `/api/v1/users`  
 Fetch all registered users.
 **Response**
 ```json
@@ -74,7 +74,7 @@ Fetch all registered users.
 ### 🎫 Event Routes
 
 #### ➕ Create an Event
-**POST** `/events`  
+**POST** `/api/v1/events/create`  
 Create a new event.
 
 **Request Body**
@@ -102,11 +102,11 @@ Create a new event.
 
 
 #### 📋 Get All Events
-**GET** `/events`  
+**GET** `/api/v1/events`  
 Fetch all events.
 
 #### 📘 Get Event by ID
-**GET** `/events/:id`  
+**GET** `/api/v1/events/:id`  
 Fetch details of a specific event by its ID.
 
 
