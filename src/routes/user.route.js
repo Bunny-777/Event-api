@@ -1,9 +1,9 @@
 import express from "express";
+import { createUser, getUsers } from "../controllers/user.controller.js";
+
 const router = express.Router();
 
-// Example GET all users
-router.get("/", async (req, res) => {
-  res.status(200).json({ message: "User route works!" });
-});
+router.post("/create", createUser);
+router.get("/", getUsers);
 
 export default router;

@@ -1,14 +1,20 @@
 import express from "express";
+import {
+  createEvent,
+  getEventDetails,
+  registerForEvent,
+  cancelRegistration,
+  listUpcomingEvents,
+  eventStats
+} from "../controllers/event.controller.js";
+
 const router = express.Router();
-import prisma from '../db'
 
-// Example GET all events
-router.get("/", async (req, res) => {
-  res.status(200).json({ message: "Event route works!" });
-});
-
-router.post("/create", async (req, res) => {
-  res.status(200).json({ message: "teri maa ki pooja karu!" });
-});
+router.post("/create", createEvent);
+router.get("/:id", getEventDetails);
+router.post("/register", registerForEvent);
+router.post("/cancel", cancelRegistration);
+router.get("/upcoming/all", listUpcomingEvents);
+router.get("/:id/stats", eventStats);
 
 export default router;
