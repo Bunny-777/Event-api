@@ -1,6 +1,29 @@
-# 🎟️ Event Management API
+# 🎟️ Event Management REST API
 
-A RESTful API built with **Node.js**, **Express**, and **PostgreSQL** (via **Prisma ORM**) to manage users, events, and registrations.
+A **backend project** built using **Node.js**, **Express**, and **PostgreSQL** with **Prisma ORM**.  
+This API provides a complete event management system where users can create events, register or cancel participation, and view statistics for each event.
+
+---
+
+## 🚀 Features
+
+✅ Create and manage events  
+✅ User registration for events  
+✅ Cancel registrations  
+✅ View upcoming events (custom sorted)  
+✅ View event statistics  
+✅ Data validation and error handling  
+✅ PostgreSQL + Prisma ORM integration  
+✅ RESTful architecture with clean folder structure
+
+---
+
+## 📚 Tech Stack
+
+- **Node.js** — Backend runtime  
+- **Express.js** — Web framework  
+- **PostgreSQL** — Relational database  
+- **Prisma ORM** — Database modeling and query builder
 
 ---
 
@@ -130,9 +153,4 @@ Fetch all registrations.
 | 500        | Internal Server Error                |
 
 
-#### 📚 Tech Stack
-
-- Node.js + Express.js
-- PostgreSQL
-- Prisma ORM
 
