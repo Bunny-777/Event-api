@@ -37,7 +37,7 @@ This API provides a complete event management system where users can create even
 ### 👤 User Routes
 
 #### ➕ Create a User
-**POST** `/api/v1/users`  
+**POST** `/api/v1/users/create`  
 Create a new user.
 
 **Request Body**
@@ -90,26 +90,45 @@ Create a new event.
 **Response**
 ```json
 {
-  "id": "uuid",
-  "title": "Tech Conference 2025",
-  "start_time": "2025-11-01T10:00:00.000Z",
-  "location": "Delhi",
-  "capacity": 100,
-  "created_at": "2025-10-15T09:00:00.000Z"
+    "message": "Event created",
+    "eventId": "e9379d92-c782-4020-8b8f-4049bbbf87cf"
 }
 
 ```
 
 
-#### 📋 Get All Events
-**GET** `/api/v1/events`  
-Fetch all events.
 
 #### 📘 Get Event by ID
 **GET** `/api/v1/events/:id`  
 Fetch details of a specific event by its ID.
 
 
+**Response**
+
+
+```json
+{
+    "id": "e703747a-db17-4666-bd4a-47655fd8a21e",
+    "title": "Manvi's show",
+    "start_time": "2026-08-09T18:30:00.000Z",
+    "location": "Dubai",
+    "capacity": 101,
+    "created_at": "2025-10-15T10:34:22.109Z",
+    "registrations": [
+        {
+            "id": "5d9d55fb-b679-4f25-ac2c-30278fd902f4",
+            "user_id": "00d58d6f-e3ce-423e-b59a-45d4dfa5e582",
+            "event_id": "e703747a-db17-4666-bd4a-47655fd8a21e",
+            "registered_at": "2025-10-15T15:32:56.939Z",
+            "user": {
+                "id": "00d58d6f-e3ce-423e-b59a-45d4dfa5e582",
+                "name": "lakshya",
+                "email": "lakshya@email"
+            }
+        }
+    ]
+}
+```
 | Method | Endpoint | Description |
 |--------|---------|-------------|
 | POST   | /api/v1/events/create | Create a new event |
@@ -119,36 +138,6 @@ Fetch details of a specific event by its ID.
 | GET    | /api/v1/events/upcoming/all | List upcoming events |
 | GET    | /api/v1/events/:id/stats | View event stats |
 
-
-### 📝 Registration Routes
-
-#### ➕ Register a User for an Event
-**POST** `/registrations`  
-Register a user for a specific event.
-
-**Request Body**
-```json
-{
-  "user_id": "uuid",
-  "event_id": "uuid"
-}
-
-
-```
-**Response**
-```json
-{
-  "id": "uuid",
-  "user_id": "uuid",
-  "event_id": "uuid",
-  "registered_at": "2025-10-15T09:05:00.000Z"
-}
-
-
-```
-#### 📋 Get All Registrations
-**GET** `/registrations`  
-Fetch all registrations.
 
 
 #### ⚙️ Response Codes
